@@ -1,0 +1,22 @@
+{
+    "what is algorand": "Algorand is a decentralized blockchain protocol founded by Silvio Micali.",
+    "who created algorand": "Silvio Micali, a Turing Award-winning cryptographer, founded Algorand.",
+    "what is algorand used for": "Algorand is used for building decentralized applications (dApps) and smart contracts.",
+    "how does algorand work": "Algorand uses a unique consensus mechanism called Pure Proof of Stake (PPoS) to secure the network.",
+    "what is algorand's consensus mechanism": "Algorand uses Pure Proof of Stake (PPoS) as its consensus mechanism.",
+    "what is algorand's native currency": "The native currency of Algorand is called ALGO.",
+    "how to buy algorand": "You can buy Algorand (ALGO) on various cryptocurrency exchanges like Binance, Coinbase, and Kraken.",
+    "where to store algorand": "You can store Algorand (ALGO) in wallets that support it, such as Algorand Wallet, Ledger, or Exodus.",
+    "how to transfer algorand": "You can transfer Algorand (ALGO) using the Algorand Wallet or any compatible wallet by entering the recipient's address and the amount.",
+    "what is algorand's transaction fee": "Algorand's transaction fees are typically very low, often less than a cent per transaction.",
+    "how to stake algorand": "You can stake Algorand (ALGO) by holding it in a supported wallet, which allows you to earn rewards.",
+    "what is algorand's staking rewards": "Algorand offers staking rewards to ALGO holders, typically around 5-10% annually.",          
+    "what is algorand's transaction speed": "Algorand can process thousands of transactions per second with a finality time of around 4.5 seconds.",
+    "what is algorand's scalability": "Algorand is designed to be highly scalable, allowing for a large number of transactions without compromising security.",
+    "what is algorand's security model": "Algorand uses cryptographic proofs and a decentralized network to ensure security and prevent attacks.",
+    "what are algorand smart contracts": "Algorand smart contracts are self-executing contracts with the terms of the agreement directly written into code.",
+    "how to create an algorand smart contract": "You can create an Algorand smart contract using the Algorand Smart Contract Language (ASC1) and the Algorand SDK.",
+    "what is algorand's governance model": "Algorand uses a decentralized governance model where ALGO holders can participate in decision-making processes.",
+    "what is algorand's roadmap": "Algorand's roadmap includes plans for further scalability, interoperability, and enhanced smart contract capabilities."
+
+}

@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ask/', include('algobot.urls')),
+    path('fine_tune/', include('algobot.urls')),
 
 ]

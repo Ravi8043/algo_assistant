@@ -3,10 +3,12 @@ from django.views.decorators.csrf import csrf_exempt
 import json, os
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient, HfApi
+import traceback
 
 load_dotenv()  # Load environment variables
 
 HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+HUGGINGFACE_API_KEY_1 = os.getenv("HUGGINGFACE_API_KEY_1")
 HUGGINGFACE_USER = os.getenv("HUGGINGFACE_USER")  # Hugging Face username
 HUGGINGFACE_MODEL_ID = os.getenv("HUGGINGFACE_MODEL_ID")  # Name of your model on Hugging Face Hub
 
@@ -55,6 +57,8 @@ def ask_view(request):
 
 
 # New View for Fine-Tuning the Model
+
+
 @csrf_exempt
 def fine_tune_view(request):
     if request.method == 'POST':
@@ -65,9 +69,21 @@ def fine_tune_view(request):
             if not query:
                 return JsonResponse({'error': 'Query is empty'}, status=400)
 
+            # Log which model you *intend* to use
+            full_model_path = f"{HUGGINGFACE_USER}/{HUGGINGFACE_MODEL_ID}"
+            print(f"🔥 Using model from env: {full_model_path}")
+
+            # Optional: fetch actual model metadata from Hugging Face
+            api = HfApi()
+            model_info = api.model_info(full_model_path)
+            print(f"📦 Actual model base: {model_info.modelId}")
+            print(f"🧠 Model config: {model_info.config}")
+            print(f"📄 Model tags: {model_info.tags}")
+
+            # Use the InferenceClient
             client = InferenceClient(
-                model=f"{HUGGINGFACE_USER}/{HUGGINGFACE_MODEL_ID}",
-                token=HUGGINGFACE_API_KEY
+                model=full_model_path,
+                token=HUGGINGFACE_API_KEY_1
             )
 
             response = client.text_generation(
@@ -83,6 +99,8 @@ def fine_tune_view(request):
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON in the request body'}, status=400)
         except Exception as e:
+            print("💥 Exception occurred:")
+            traceback.print_exc()
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Only POST allowed'}, status=405)

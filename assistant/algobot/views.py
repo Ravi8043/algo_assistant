@@ -71,14 +71,14 @@ def fine_tune_view(request):
 
             # Log which model you *intend* to use
             full_model_path = f"{HUGGINGFACE_USER}/{HUGGINGFACE_MODEL_ID}"
-            print(f"🔥 Using model from env: {full_model_path}")
+            print(f"Using model from env: {full_model_path}")
 
             # Optional: fetch actual model metadata from Hugging Face
             api = HfApi()
             model_info = api.model_info(full_model_path)
-            print(f"📦 Actual model base: {model_info.modelId}")
-            print(f"🧠 Model config: {model_info.config}")
-            print(f"📄 Model tags: {model_info.tags}")
+            print(f"Actual model base: {model_info.modelId}")
+            print(f"Model config: {model_info.config}")
+            print(f"Model tags: {model_info.tags}")
 
             # Use the InferenceClient
             client = InferenceClient(
@@ -99,7 +99,7 @@ def fine_tune_view(request):
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON in the request body'}, status=400)
         except Exception as e:
-            print("💥 Exception occurred:")
+            print("Exception occurred:")
             traceback.print_exc()
             return JsonResponse({'error': str(e)}, status=500)
 
